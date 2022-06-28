@@ -14,5 +14,3 @@ ADD src .
 EXPOSE 5000
 # running the food-delivery with "-u" flag so that every request gets printed exactly when it is generated.
 CMD ["python","-u","./dashboard/flask_analytics.py"]
-#CMD ["echo", "Ciao!"]
-
