@@ -14,7 +14,7 @@ There are four separated services continuously running at the same time.
 
 ### The Openrouteservice API
 The system relies on the [openrouteservice API](https://openrouteservice.org/) in three separate instances:
-1) when the generator is run for the first time, the [Points of Interest API ](https://openrouteservice.org/dev/#/api-docs/pois/post) is used to generate a `restaurants.csv` file, containing information about the location of real restaurants in Milan. Nonetheless, to avoid (seemingly frequent) API errors, such file is already provided in the repository.
+1) when the generator is run for the first time, the [Points of Interest API ](https://openrouteservice.org/dev/#/api-docs/pois) is used to generate a `restaurants.csv` file, containing information about the location of real restaurants in Milan. Nonetheless, to avoid (seemingly frequent) API errors, such file is already provided in the repository.
 2) in the optimization phase, the [Matrix API](https://openrouteservice.org/dev/#/api-docs/matrix) is used to compute two origin-destination matrices, to find the best deliveryman-order match and to compute for each order the length of the trip. Such matrices are limited to 3500 cells.
 3) in the analytics phase, to plot the routes on the map, several calls are made to the [Direction API](https://openrouteservice.org/dev/#/api-docs/v2/directions). 
 
