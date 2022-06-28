@@ -19,4 +19,4 @@ MongoDB runs on port 27017.
 Flask dashboard runs on port 5000.
 
 ### Environment variables
-In each service folder, except that for mongo, a `.env` file is present, which contains environment variables needed to run each service. As a matter of fact, the only thing that should be inserted in order into each of them to run the code is the openrouteservice API key.
+In each of the services folders, a `.env` file is present. This contains environment variables needed to run each service. As a matter of fact, the only thing that should be inserted into each of them in order to run the code is the openrouteservice API key.
