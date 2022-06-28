@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Big Data Technologies 2022</title>
+</head>
+<body>
+    <h1>Big Data Technologies 2022</h1>
+    <br>
+    <h2>Map of Milan</h2>
+    <br>
+    <iframe class="map", src="/map" width="1000" height="1000"></iframe>
+    <br>
+    <h2>Analytics</h2>
+        <p>
+        Average waiting time: <b> {{avg_wait}} </b> minutes <br>
+            Number of pending orders: <b> {{n_pending}} </b> <br>
+        Number of processed orders: <b> {{n_processed}} </b>
+        </p>
+    <h4>
+        Most ordered foods
+    </h4>
+    <table>
+        <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for key, value in chart.items() %}
+   <tr>
+       <td> {{ key }} </td>
+       <td> {{ value }} </td>
+   </tr>
+  {% endfor %}
+  </tbody>
+    </table>
+     <br>
+    <h4>
+        Number of occupied deliverymen: {{n_occupied}}
+    </h4>
+    <table>
+        <thead>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Directed to</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for man in occupied_men %}
+   <tr>
+       <td> {{ man[0] }} </td>
+       <td> {{ man[1] }} </td>
+       <td> {{ man[2] }} </td>
+   </tr>
+  {% endfor %}
+  </tbody>
+    </table>
+</body>
+</html>

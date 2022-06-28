@@ -1,0 +1,75 @@
+version: "3"
+
+services:
+  # manages containers
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./volumes/portainer/data:/data
+    restart: unless-stopped
+
+  # MongoDb
+  mongo:
+    container_name: mongo
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    env_file:
+      - docker/services/mongo/mongo.env
+    volumes:
+      - ./volumes/mongo/db:/data/db
+      - ./volumes/mongo/config:/data/configdb
+    restart: unless-stopped
+
+  # my services
+  generator:
+    container_name: generator
+    build:
+      context: ./
+      dockerfile: docker/services/generator/Dockerfile
+    env_file:
+      - docker/services/generator/generator.env
+    depends_on:
+      - mongo
+    restart: unless-stopped
+
+  subscriber:
+    container_name: subscriber
+    build:
+      context: ./
+      dockerfile: docker/services/subscriber/Dockerfile
+    env_file:
+      - docker/services/subscriber/subscriber.env
+    depends_on:
+      - mongo
+    restart: unless-stopped
+
+  matcher:
+    container_name: matcher
+    build:
+      context: ./
+      dockerfile: docker/services/matcher/Dockerfile
+    env_file:
+      - docker/services/matcher/matcher.env
+    depends_on:
+      - mongo
+    restart: unless-stopped
+
+  analytics:
+    container_name: analytics
+    build:
+      context: ./
+      dockerfile: docker/services/analytics/Dockerfile
+    ports:
+      - "5000:5000"
+    env_file:
+      - docker/services/analytics/analytics.env
+    depends_on:
+      - mongo
+    restart: unless-stopped
+
+#
