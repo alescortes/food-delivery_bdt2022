@@ -26,7 +26,6 @@ time.sleep(10)
 
 
 while True:
-    fattorini = handler.return_entries(COLLECTION_DELIVERYMEN)
     free_deliverymen = handler.free_deliverymen(COLLECTION_DELIVERYMEN,COLLECTION_PROCESSED)
     # Because of API limits we just take the oldest 70 requests, otherwise the program would crash while
     # computing the optimization matrix.
