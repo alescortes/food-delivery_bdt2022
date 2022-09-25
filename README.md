@@ -2,7 +2,7 @@
 
 ## Group 15 - Optimize the delivery of goods in the city of Milan
 
-This is a big data system to generate fake random orders to a food delivery service and to match a set of deliverymen to deliver such orders.
+This is a big data system to generate fake random orders to a food delivery service and to match a set of delivery men to deliver such orders.
 The system includes a MongoDB database to store in three different collections the deliverymen, the pending orders, and the processed orders and a MQTT queue which acts as a buffer in the data ingestion phase. The result of the program is a flask dashboard which displays a map and a series of analytics. 
 
 ### Architecture
@@ -19,7 +19,7 @@ The system relies on the [openrouteservice API](https://openrouteservice.org/) i
 3) in the analytics phase, to plot the routes on the map, several calls are made to the [Direction API](https://openrouteservice.org/dev/#/api-docs/v2/directions). 
 
 ### Running the program
-The code is dockerized. To run it, just clone the repository and then type from terminal <pre><code>-sudo docker-compose up</code></pre> and everything should work beautifully (at least on Linux machines, perhaps less beautifully on MacOs).
+The code is dockerized. To run it, just clone the repository and then type from terminal <pre><code>sudo docker-compose up</code></pre> and everything should work beautifully (at least on Linux machines, perhaps less beautifully on MacOs).
 
 MongoDB runs on port 27017.
 Flask dashboard runs on port 5000.
